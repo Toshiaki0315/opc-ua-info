@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>http://example.com/MyHelperModel</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="http://example.com/MyHelperModel" Version="1.0.0" PublicationDate="2023-01-01T00:00:00Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04" PublicationDate="2019-09-09T00:00:00Z" />
+    </Model>
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+  </Aliases>
+  
+  <!-- A type extension in a separate nodeset -->
+  <UAObjectType NodeId="ns=1;i=100" BrowseName="1:MyExtendedDeviceType">
+    <DisplayName>MyExtendedDeviceType</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=58</Reference><!-- BaseObjectType for now, effectively independent unless we link to other model -->
+    </References>
+  </UAObjectType>
+
+</UANodeSet>

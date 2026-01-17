@@ -1,0 +1,26 @@
+{
+  "name": "opc-ua-info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@hpcc-js/wasm": "^2.32.2",
+    "@types/node": "^25.0.9",
+    "node-opcua": "^2.160.0",
+    "pdfkit": "^0.17.2",
+    "svg-to-pdfkit": "^0.1.8",
+    "ts-graphviz": "^3.0.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/pdfkit": "^0.17.4"
+  }
+}

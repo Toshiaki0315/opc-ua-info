@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>http://example.com/MyModel</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="http://example.com/MyModel" Version="1.0.0" PublicationDate="2023-01-01T00:00:00Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04" PublicationDate="2019-09-09T00:00:00Z" />
+    </Model>
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+  </Aliases>
+  
+  <!-- ObjectType -->
+  <UAObjectType NodeId="ns=1;i=1000" BrowseName="1:MyDeviceType">
+    <DisplayName>MyDeviceType</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=58</Reference><!-- BaseObjectType -->
+    </References>
+  </UAObjectType>
+  
+  <!-- Instance object -->
+  <UAObject NodeId="ns=1;i=2000" BrowseName="1:MyDeviceInstance">
+    <DisplayName>MyDeviceInstance</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">ns=1;i=1000</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference><!-- ObjectsFolder -->
+    </References>
+  </UAObject>
+
+  <!-- Variable -->
+  <UAVariable NodeId="ns=1;i=2001" BrowseName="1:Temperature" ParentNodeId="ns=1;i=2000" DataType="Boolean">
+    <DisplayName>Temperature</DisplayName>
+    <References>
+        <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=2000</Reference>
+        <Reference ReferenceType="HasTypeDefinition">i=63</Reference><!-- BaseDataVariableType -->
+    </References>
+  </UAVariable>
+
+</UANodeSet>
