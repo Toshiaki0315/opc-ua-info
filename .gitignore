@@ -1,3 +1,4 @@
 # dependencies
 /node_modules
 /coverage
+/Opc.Ua.NodeSet2.xml
